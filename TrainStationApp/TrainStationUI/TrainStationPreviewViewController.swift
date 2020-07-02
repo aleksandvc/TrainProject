@@ -9,90 +9,82 @@
 import UIKit
 import Foundation
 
-class TrainStationPreviewViewController: UIViewController, XMLParserDelegate {
-     
+class TrainStationPreviewViewController: UIViewController {
+    
     @IBOutlet weak var fromStationTextField: UITextField!
     @IBOutlet weak var toStationTextField: UITextField!
     @IBOutlet weak var getInfoButton: UIButton!
-   
-    var currentParsingElement = ""
+    
+    let viewModel = TrainStationViewModel()
+    
+    var isFirstTextfieldOpened = false
+    
+    var firstSelectedCountry: Station?
+    var secondSelectedCountry: Station?
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        guard let url = URL(string: "http://api.irishrail.ie/realtime/realtime.asmx/getAllStationsXML") else { return }
-        
-//        let session = URLSession(configuration: .default, delegate: nil, delegateQueue: nil)
-//        var request = URLRequest(url: url, cachePolicy: .reloadIgnoringLocalCacheData, timeoutInterval: 30)
-//        request.httpMethod = "GET"
-        //request.addValue("application/json;charset=UTF-8", forHTTPHeaderField: "Content-Type")
-        
-        let task = URLSession.shared.dataTask(with: url, completionHandler: { (data, response, error) in
-            
-            print(error ?? "No error")
-            print(response ?? "No response")
-            
-            guard let data = data else { return }
-            let parser = XMLParser(data: data)
-            parser.delegate = self
-            parser.parse()
-            
-        })
-        
-        task.resume()
+    
+    }
+    
+    func presentSearchableOptionsVC() {
+        let searchableVC = SearchableOptionsViewController(nibName: "\(SearchableOptionsViewController.self)", bundle: nil)
+        searchableVC.modalPresentationStyle = .formSheet
+        searchableVC.delegate = self
+        DispatchQueue.main.async {
+            self.present(searchableVC, animated: true, completion: nil)
+        }
     }
     
     @IBAction func didTapGetInfoButton(_ sender: Any) {
         
+    }    
+}
+
+extension TrainStationPreviewViewController: SearchableOptionsDelegate {
+    var isFirstTextfieldTapped: Bool {
+        return isFirstTextfieldOpened
     }
     
-    //MARK:- XML Delegate methods
-    func parser(_ parser: XMLParser, didStartElement elementName: String, namespaceURI: String?, qualifiedName qName: String?, attributes attributeDict: [String : String] = [:]) {
-        currentParsingElement = elementName
-        if elementName == "ArrayOfObjStation" {
-            print("Started parsing...")
+    var firstSelectedStation: Station? {
+        get {
+            return firstSelectedCountry
+        }
+        set {
+            firstSelectedCountry = newValue
         }
     }
-      
-    func parser(_ parser: XMLParser, foundCharacters string: String) {
-        let foundedChar = string.trimmingCharacters(in:NSCharacterSet.whitespacesAndNewlines)
+    
+    var secondSelectedStation: Station? {
+        get {
+            return secondSelectedCountry
+        }
+        set {
+            secondSelectedCountry = newValue
+        }
+    }
+    
+    func setStationToFirstTextField() {
+        fromStationTextField.text = firstSelectedCountry?.description
+    }
+    
+    func setStationToSecondTextField() {
+        toStationTextField.text = secondSelectedCountry?.description
+    }
+    
+    
+}
+
+extension TrainStationPreviewViewController: UITextFieldDelegate {
+    
+    func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool {
+        isFirstTextfieldOpened = textField.tag == 1 ? true : false
+        presentSearchableOptionsVC()
         
-        if (!foundedChar.isEmpty) {
-            print(foundedChar)
-//            if currentParsingElement == "IP" {
-//                ipAddr += foundedChar
-//            }
-//            else if currentParsingElement == "CountryCode" {
-//                countryCode += foundedChar
-//            }
-//            else if currentParsingElement == "CountryName" {
-//                countryName += foundedChar
-//            }
-//            else if currentParsingElement == "Latitude" {
-//                latitude += foundedChar
-//            }
-//            else if currentParsingElement == "Longitude" {
-//                longitude += foundedChar
-//            }
-        }
-          
+        return false
     }
-      
-    func parser(_ parser: XMLParser, didEndElement elementName: String, namespaceURI: String?, qualifiedName qName: String?) {
-        if elementName == "ArrayOfObjStation" {
-            print("Ended parsing...")
-              
-        }
-    }
-      
-    func parserDidEndDocument(_ parser: XMLParser) {
-//        DispatchQueue.main.async {
-//             Update UI
-//            self.displayOnUI()
-//
-//        }
-    }
-      
-    func parser(_ parser: XMLParser, parseErrorOccurred parseError: Error) {
-        print("parseErrorOccurred: \(parseError)")
+    
+    func textFieldDidEndEditing(_ textField: UITextField) {
+        
     }
 }

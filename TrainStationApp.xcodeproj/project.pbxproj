@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B2183AC424AE18B000E0197F /* TrainStationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2183AC324AE18B000E0197F /* TrainStationViewModel.swift */; };
+		B2183AC724AE195C00E0197F /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2183AC624AE195C00E0197F /* NetworkManager.swift */; };
+		B2183AD524AE2CD400E0197F /* SearchableOptionsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B2183AD324AE2CD400E0197F /* SearchableOptionsViewController.xib */; };
+		B2183AD624AE2CD400E0197F /* SearchableOptionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2183AD424AE2CD400E0197F /* SearchableOptionsViewController.swift */; };
+		B2183AD924AE2F9A00E0197F /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2183AD824AE2F9A00E0197F /* Constants.swift */; };
 		B2965C5F24ACCEC000785B47 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2965C5E24ACCEC000785B47 /* AppDelegate.swift */; };
 		B2965C6124ACCEC000785B47 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2965C6024ACCEC000785B47 /* SceneDelegate.swift */; };
 		B2965C6624ACCEC000785B47 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B2965C6424ACCEC000785B47 /* Main.storyboard */; };
@@ -17,6 +22,11 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		B2183AC324AE18B000E0197F /* TrainStationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrainStationViewModel.swift; sourceTree = "<group>"; };
+		B2183AC624AE195C00E0197F /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
+		B2183AD324AE2CD400E0197F /* SearchableOptionsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SearchableOptionsViewController.xib; sourceTree = "<group>"; };
+		B2183AD424AE2CD400E0197F /* SearchableOptionsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchableOptionsViewController.swift; sourceTree = "<group>"; };
+		B2183AD824AE2F9A00E0197F /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		B2965C5B24ACCEC000785B47 /* TrainStationApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TrainStationApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B2965C5E24ACCEC000785B47 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B2965C6024ACCEC000785B47 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -39,6 +49,39 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		B2183AC224AE188700E0197F /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				B2183AC324AE18B000E0197F /* TrainStationViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		B2183AC524AE191F00E0197F /* Networking */ = {
+			isa = PBXGroup;
+			children = (
+				B2183AC624AE195C00E0197F /* NetworkManager.swift */,
+			);
+			path = Networking;
+			sourceTree = "<group>";
+		};
+		B2183AD224AE2CD400E0197F /* SearchableOptionsViewController */ = {
+			isa = PBXGroup;
+			children = (
+				B2183AD324AE2CD400E0197F /* SearchableOptionsViewController.xib */,
+				B2183AD424AE2CD400E0197F /* SearchableOptionsViewController.swift */,
+			);
+			path = SearchableOptionsViewController;
+			sourceTree = "<group>";
+		};
+		B2183AD724AE2F8800E0197F /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				B2183AD824AE2F9A00E0197F /* Constants.swift */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
 		B2965C5224ACCEC000785B47 = {
 			isa = PBXGroup;
 			children = (
@@ -58,6 +101,9 @@
 		B2965C5D24ACCEC000785B47 /* TrainStationApp */ = {
 			isa = PBXGroup;
 			children = (
+				B2183AD724AE2F8800E0197F /* Utils */,
+				B2183AC524AE191F00E0197F /* Networking */,
+				B2183AC224AE188700E0197F /* ViewModel */,
 				B2965C8324AE125300785B47 /* TrainStationUI */,
 				B2965C7B24ACE07300785B47 /* Model */,
 				B2965C5E24ACCEC000785B47 /* AppDelegate.swift */,
@@ -82,6 +128,7 @@
 			isa = PBXGroup;
 			children = (
 				B2965C7224ACCF7100785B47 /* TrainStationPreviewViewController.swift */,
+				B2183AD224AE2CD400E0197F /* SearchableOptionsViewController */,
 			);
 			path = TrainStationUI;
 			sourceTree = "<group>";
@@ -145,6 +192,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B2965C6B24ACCEC200785B47 /* LaunchScreen.storyboard in Resources */,
+				B2183AD524AE2CD400E0197F /* SearchableOptionsViewController.xib in Resources */,
 				B2965C6824ACCEC200785B47 /* Assets.xcassets in Resources */,
 				B2965C6624ACCEC000785B47 /* Main.storyboard in Resources */,
 			);
@@ -157,10 +205,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B2183AC724AE195C00E0197F /* NetworkManager.swift in Sources */,
+				B2183AD624AE2CD400E0197F /* SearchableOptionsViewController.swift in Sources */,
 				B2965C5F24ACCEC000785B47 /* AppDelegate.swift in Sources */,
 				B2965C6124ACCEC000785B47 /* SceneDelegate.swift in Sources */,
 				B2965C7324ACCF7100785B47 /* TrainStationPreviewViewController.swift in Sources */,
 				B2965C7D24ACE09100785B47 /* Station.swift in Sources */,
+				B2183AC424AE18B000E0197F /* TrainStationViewModel.swift in Sources */,
+				B2183AD924AE2F9A00E0197F /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -307,6 +359,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = R98MZ543XM;
 				INFOPLIST_FILE = TrainStationApp/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -325,6 +378,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = R98MZ543XM;
 				INFOPLIST_FILE = TrainStationApp/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
