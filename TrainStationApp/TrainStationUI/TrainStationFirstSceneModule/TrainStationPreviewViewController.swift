@@ -19,18 +19,19 @@ class TrainStationPreviewViewController: UIViewController {
     
     var isFirstTextfieldOpened = false
     
-    var firstSelectedCountry: Station?
-    var secondSelectedCountry: Station?
+    var firstStation: Station?
+    var secondStation: Station?
     
     override func viewDidLoad() {
         super.viewDidLoad()
-    
+        getInfoButton.layer.cornerRadius = 5
     }
     
     func presentSearchableOptionsVC() {
         let searchableVC = SearchableOptionsViewController(nibName: "\(SearchableOptionsViewController.self)", bundle: nil)
         searchableVC.modalPresentationStyle = .formSheet
         searchableVC.delegate = self
+        searchableVC.viewModel = SearchableOptionsViewModel()
         DispatchQueue.main.async {
             self.present(searchableVC, animated: true, completion: nil)
         }
@@ -48,28 +49,40 @@ extension TrainStationPreviewViewController: SearchableOptionsDelegate {
     
     var firstSelectedStation: Station? {
         get {
-            return firstSelectedCountry
+            return firstStation
         }
         set {
-            firstSelectedCountry = newValue
+            firstStation = newValue
         }
     }
     
     var secondSelectedStation: Station? {
         get {
-            return secondSelectedCountry
+            return secondStation
         }
         set {
-            secondSelectedCountry = newValue
+            secondStation = newValue
         }
     }
     
     func setStationToFirstTextField() {
-        fromStationTextField.text = firstSelectedCountry?.description
+        guard let station = firstSelectedStation else { return }
+        if station.code == secondSelectedStation?.code {
+            fromStationTextField.text = "Please choose different than the other choosen station"
+            firstSelectedStation = nil
+        } else {
+            fromStationTextField.text = "\(station.description) - code: \(station.code)"
+        }
     }
     
     func setStationToSecondTextField() {
-        toStationTextField.text = secondSelectedCountry?.description
+        guard let station = secondSelectedStation else { return }
+        if station.code == firstSelectedStation?.code {
+            toStationTextField.text = "Please choose different than the other choosen station"
+            secondSelectedStation = nil
+        } else {
+            toStationTextField.text = "\(station.description) - code: \(station.code)"
+        }
     }
     
     
@@ -82,9 +95,5 @@ extension TrainStationPreviewViewController: UITextFieldDelegate {
         presentSearchableOptionsVC()
         
         return false
-    }
-    
-    func textFieldDidEndEditing(_ textField: UITextField) {
-        
     }
 }

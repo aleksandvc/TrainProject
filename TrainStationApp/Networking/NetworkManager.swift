@@ -8,24 +8,20 @@
 
 import Foundation
 
-//Know that Singletons are considered as anty-pattern but for this simple app it is not a problem.
 class NetworkManager {
     
     weak var delegate: XMLParserDelegate?
     
-    func getAllStations() {
+    func getAllStations(completion: (()->())?) {
         guard let url = URL(string: "http://api.irishrail.ie/realtime/realtime.asmx/getAllStationsXML") else { return }
         
         let task = URLSession.shared.dataTask(with: url, completionHandler: { (data, response, error) in
-            
-            print(error ?? "No error")
-            print(response ?? "No response")
             
             guard let data = data else { return }
             let parser = XMLParser(data: data)
             parser.delegate = self.delegate
             parser.parse()
-            
+            completion?()
         })
         
         task.resume()
