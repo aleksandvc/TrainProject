@@ -26,6 +26,20 @@ class TrainStationPreviewViewController: UIViewController {
         super.viewDidLoad()
         getInfoButton.layer.cornerRadius = 5
     }
+    //MARK: Private functions
+    private func toggleMainButton() {
+        let shouldBeEnabled = firstSelectedStation != nil && secondSelectedStation != nil
+        getInfoButton.backgroundColor = shouldBeEnabled ? UIColor.systemBlue : UIColor.systemGray
+        getInfoButton.isEnabled = shouldBeEnabled
+    }
+    
+    private func presentResultsVC() {
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let resultsVC = storyboard.instantiateViewController(withIdentifier: "ResultsViewController")
+        DispatchQueue.main.async {
+            self.present(resultsVC, animated: true, completion: nil)
+        }
+    }
     
     func presentSearchableOptionsVC() {
         let searchableVC = SearchableOptionsViewController(nibName: "\(SearchableOptionsViewController.self)", bundle: nil)
@@ -38,7 +52,7 @@ class TrainStationPreviewViewController: UIViewController {
     }
     
     @IBAction func didTapGetInfoButton(_ sender: Any) {
-        
+        presentResultsVC()
     }    
 }
 
@@ -73,6 +87,7 @@ extension TrainStationPreviewViewController: SearchableOptionsDelegate {
         } else {
             fromStationTextField.text = "\(station.description) - code: \(station.code)"
         }
+        toggleMainButton()
     }
     
     func setStationToSecondTextField() {
@@ -83,6 +98,7 @@ extension TrainStationPreviewViewController: SearchableOptionsDelegate {
         } else {
             toStationTextField.text = "\(station.description) - code: \(station.code)"
         }
+        toggleMainButton()
     }
     
     

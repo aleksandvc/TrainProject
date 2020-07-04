@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -14,9 +14,10 @@
 		B2183AD624AE2CD400E0197F /* SearchableOptionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2183AD424AE2CD400E0197F /* SearchableOptionsViewController.swift */; };
 		B2183AD924AE2F9A00E0197F /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2183AD824AE2F9A00E0197F /* Constants.swift */; };
 		B2183AE224AF503E00E0197F /* SearchableOptionsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2183AE124AF503E00E0197F /* SearchableOptionsViewModel.swift */; };
+		B2183AE524B0BC7600E0197F /* ResultsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2183AE424B0BC7600E0197F /* ResultsViewController.swift */; };
+		B2183AE724B0BE0C00E0197F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B2183AE624B0BE0C00E0197F /* Main.storyboard */; };
 		B2965C5F24ACCEC000785B47 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2965C5E24ACCEC000785B47 /* AppDelegate.swift */; };
 		B2965C6124ACCEC000785B47 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2965C6024ACCEC000785B47 /* SceneDelegate.swift */; };
-		B2965C6624ACCEC000785B47 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B2965C6424ACCEC000785B47 /* Main.storyboard */; };
 		B2965C6824ACCEC200785B47 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B2965C6724ACCEC200785B47 /* Assets.xcassets */; };
 		B2965C6B24ACCEC200785B47 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B2965C6924ACCEC200785B47 /* LaunchScreen.storyboard */; };
 		B2965C7324ACCF7100785B47 /* TrainStationPreviewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2965C7224ACCF7100785B47 /* TrainStationPreviewViewController.swift */; };
@@ -32,10 +33,11 @@
 		B2183AD424AE2CD400E0197F /* SearchableOptionsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchableOptionsViewController.swift; sourceTree = "<group>"; };
 		B2183AD824AE2F9A00E0197F /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		B2183AE124AF503E00E0197F /* SearchableOptionsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchableOptionsViewModel.swift; sourceTree = "<group>"; };
+		B2183AE424B0BC7600E0197F /* ResultsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultsViewController.swift; sourceTree = "<group>"; };
+		B2183AE624B0BE0C00E0197F /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Main.storyboard; path = ../../.Trash/Main.storyboard; sourceTree = "<group>"; };
 		B2965C5B24ACCEC000785B47 /* TrainStationApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TrainStationApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B2965C5E24ACCEC000785B47 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B2965C6024ACCEC000785B47 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		B2965C6524ACCEC000785B47 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		B2965C6724ACCEC200785B47 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B2965C6A24ACCEC200785B47 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		B2965C6C24ACCEC200785B47 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -62,7 +64,6 @@
 				FCC0259600BAD9B58FC3564F /* Pods-TrainStationApp.debug.xcconfig */,
 				8652C3C85A37AE0F30045818 /* Pods-TrainStationApp.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -117,6 +118,14 @@
 			path = TrainStationFirstSceneModule;
 			sourceTree = "<group>";
 		};
+		B2183AE324B0BC4C00E0197F /* ResultsModule */ = {
+			isa = PBXGroup;
+			children = (
+				B2183AE424B0BC7600E0197F /* ResultsViewController.swift */,
+			);
+			path = ResultsModule;
+			sourceTree = "<group>";
+		};
 		B2965C5224ACCEC000785B47 = {
 			isa = PBXGroup;
 			children = (
@@ -143,8 +152,8 @@
 				B2965C8324AE125300785B47 /* TrainStationUI */,
 				B2965C7B24ACE07300785B47 /* Model */,
 				B2965C5E24ACCEC000785B47 /* AppDelegate.swift */,
+				B2183AE624B0BE0C00E0197F /* Main.storyboard */,
 				B2965C6024ACCEC000785B47 /* SceneDelegate.swift */,
-				B2965C6424ACCEC000785B47 /* Main.storyboard */,
 				B2965C6724ACCEC200785B47 /* Assets.xcassets */,
 				B2965C6924ACCEC200785B47 /* LaunchScreen.storyboard */,
 				B2965C6C24ACCEC200785B47 /* Info.plist */,
@@ -163,6 +172,7 @@
 		B2965C8324AE125300785B47 /* TrainStationUI */ = {
 			isa = PBXGroup;
 			children = (
+				B2183AE324B0BC4C00E0197F /* ResultsModule */,
 				B2183AE024AF4FEE00E0197F /* TrainStationFirstSceneModule */,
 				B2183AD224AE2CD400E0197F /* SearchableOptionsModule */,
 			);
@@ -232,7 +242,7 @@
 				B2965C6B24ACCEC200785B47 /* LaunchScreen.storyboard in Resources */,
 				B2183AD524AE2CD400E0197F /* SearchableOptionsViewController.xib in Resources */,
 				B2965C6824ACCEC200785B47 /* Assets.xcassets in Resources */,
-				B2965C6624ACCEC000785B47 /* Main.storyboard in Resources */,
+				B2183AE724B0BE0C00E0197F /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -288,6 +298,7 @@
 				B2183AC724AE195C00E0197F /* NetworkManager.swift in Sources */,
 				B2183AD624AE2CD400E0197F /* SearchableOptionsViewController.swift in Sources */,
 				B2965C5F24ACCEC000785B47 /* AppDelegate.swift in Sources */,
+				B2183AE524B0BC7600E0197F /* ResultsViewController.swift in Sources */,
 				B2965C6124ACCEC000785B47 /* SceneDelegate.swift in Sources */,
 				B2183AE224AF503E00E0197F /* SearchableOptionsViewModel.swift in Sources */,
 				B2965C7324ACCF7100785B47 /* TrainStationPreviewViewController.swift in Sources */,
@@ -300,14 +311,6 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		B2965C6424ACCEC000785B47 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				B2965C6524ACCEC000785B47 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		B2965C6924ACCEC200785B47 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (

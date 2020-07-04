@@ -46,7 +46,7 @@ class SearchableOptionsViewModel: NSObject, SearchableOptionsNetworkingProtocol 
     }
     
     func getStations(completion: (()->())?) {
-        networkManager.getAllStations(completion: completion)
+        networkManager.getData(shouldGetStations: true, completion: completion)
     }
 }
 

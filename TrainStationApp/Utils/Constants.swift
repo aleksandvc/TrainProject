@@ -16,3 +16,8 @@ struct NotificationNames {
 struct UserDefaultsKeys {
     static let stations = "stations"
 }
+
+struct AppEndPoints {
+    static let getStationsURL = "http://api.irishrail.ie/realtime/realtime.asmx/getAllStationsXML"
+    static let getTrainsURL = "http://api.irishrail.ie/realtime/realtime.asmx/getCurrentTrainsXML"
+}
