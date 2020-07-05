@@ -30,6 +30,7 @@ class ResultsViewModel: NSObject, ResultsNetworkingProtocol {
     }
     
     func isSearchingCriterionMet(train: Train) -> Bool {
+        //No need of date, because all the trains returned from the server are with today's date
         guard let fromStationData = UserDefaults.standard.object(forKey: UserDefaultsKeys.fromStation) as? Data, let toStationData = UserDefaults.standard.object(forKey: UserDefaultsKeys.toStation) as? Data else {
             return false
         }
@@ -38,8 +39,8 @@ class ResultsViewModel: NSObject, ResultsNetworkingProtocol {
         guard let fromStation = try? PropertyListDecoder().decode(Station.self, from: fromStationData), let toStation = try? PropertyListDecoder().decode(Station.self, from: toStationData) else {
             return false
         }
-        
-        return train.latitude == fromStation.latitude && train.longitude == fromStation.longitude && (train.direction.contains(toStation.description) || train.publicMessage.contains(toStation.description))
+        let isCriterionMet = ((train.latitude == fromStation.latitude && train.longitude == fromStation.longitude) || (train.publicMessage.contains(fromStation.description))) && (train.direction.contains(toStation.description) || train.publicMessage.contains(toStation.description))
+        return isCriterionMet
     }
     
     func getTrains(presenter: UIViewController, completion: (() -> ())?) {
