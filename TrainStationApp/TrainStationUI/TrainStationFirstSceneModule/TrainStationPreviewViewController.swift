@@ -11,14 +11,14 @@ import Foundation
 
 class TrainStationPreviewViewController: UIViewController {
     
-    @IBOutlet weak var fromStationTextField: UITextField!
-    @IBOutlet weak var toStationTextField: UITextField!
+    @IBOutlet weak var firstStationTextField: UITextField!
+    @IBOutlet weak var secondStationTextField: UITextField!
     @IBOutlet weak var getInfoButton: UIButton!
     
     var isFirstTextfieldOpened = false
     
-    var firstStation: Station?
-    var secondStation: Station?
+    var firstSelectedStation: Station?
+    var secondselectedStation: Station?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,7 +26,7 @@ class TrainStationPreviewViewController: UIViewController {
     }
     //MARK: Private functions
     private func toggleMainButton() {
-        let shouldBeEnabled = fromStation != nil && toStation != nil
+        let shouldBeEnabled = firstSelectedStation != nil && secondselectedStation != nil
         getInfoButton.backgroundColor = shouldBeEnabled ? UIColor.systemBlue : UIColor.systemGray
         getInfoButton.isEnabled = shouldBeEnabled
     }
@@ -60,44 +60,44 @@ extension TrainStationPreviewViewController: SearchableOptionsDelegate {
         return isFirstTextfieldOpened
     }
     
-    var fromStation: Station? {
+    var firstStation: Station? {
         get {
-            return firstStation
+            return firstSelectedStation
         }
         set {
-            firstStation = newValue
+            firstSelectedStation = newValue
         }
     }
     
-    var toStation: Station? {
+    var secondStation: Station? {
         get {
-            return secondStation
+            return secondselectedStation
         }
         set {
-            secondStation = newValue
+            secondselectedStation = newValue
         }
     }
     
     func setStationToFirstTextField() {
-        guard let station = fromStation else { return }
-        if station.code == toStation?.code {
-            fromStationTextField.text = "Please choose different than the other choosen station"
-            fromStation = nil
+        guard let station = firstSelectedStation else { return }
+        if station.code == secondselectedStation?.code {
+            firstStationTextField.text = "Please choose different than the other choosen station"
+            firstStation = nil
         } else {
-            fromStationTextField.text = "\(station.description) - code: \(station.code)"
-            UserDefaults.standard.set(try? PropertyListEncoder().encode(station), forKey: UserDefaultsKeys.fromStation)
+            firstStationTextField.text = "\(station.description) - code: \(station.code)"
+            UserDefaults.standard.set(try? PropertyListEncoder().encode(station), forKey: UserDefaultsKeys.firstStation)
         }
         toggleMainButton()
     }
     
     func setStationToSecondTextField() {
-        guard let station = toStation else { return }
-        if station.code == fromStation?.code {
-            toStationTextField.text = "Please choose different than the other choosen station"
-            toStation = nil
+        guard let station = secondselectedStation else { return }
+        if station.code == firstSelectedStation?.code {
+            secondStationTextField.text = "Please choose different than the other choosen station"
+            secondselectedStation = nil
         } else {
-            toStationTextField.text = "\(station.description) - code: \(station.code)"
-            UserDefaults.standard.set(try? PropertyListEncoder().encode(station), forKey: UserDefaultsKeys.toStation)
+            secondStationTextField.text = "\(station.description) - code: \(station.code)"
+            UserDefaults.standard.set(try? PropertyListEncoder().encode(station), forKey: UserDefaultsKeys.secondStation)
         }
         toggleMainButton()
     }
