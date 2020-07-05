@@ -17,8 +17,8 @@ protocol SearchableOptionsNetworkingProtocol {
 
 protocol SearchableOptionsDelegate: AnyObject {
     var isFirstTextfieldTapped: Bool { get }
-    var fromStation: Station? { get set }
-    var toStation: Station? { get set }
+    var firstStation: Station? { get set }
+    var secondStation: Station? { get set }
     func setStationToFirstTextField()
     func setStationToSecondTextField()
 }
@@ -84,9 +84,9 @@ extension SearchableOptionsViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         guard let isFirstTextfieldTapped = delegate?.isFirstTextfieldTapped else { return }
         if isFirstTextfieldTapped {
-            delegate?.fromStation = isSearching ? viewModel?.searchedTrainStations[indexPath.row] : viewModel?.trainStations.value[indexPath.row]
+            delegate?.firstStation = isSearching ? viewModel?.searchedTrainStations[indexPath.row] : viewModel?.trainStations.value[indexPath.row]
         } else {
-            delegate?.toStation = isSearching ? viewModel?.searchedTrainStations[indexPath.row] : viewModel?.trainStations.value[indexPath.row]
+            delegate?.secondStation = isSearching ? viewModel?.searchedTrainStations[indexPath.row] : viewModel?.trainStations.value[indexPath.row]
         }
         
         dismiss(animated: true, completion: nil)

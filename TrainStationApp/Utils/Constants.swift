@@ -8,15 +8,9 @@
 
 import Foundation
 
-struct NotificationNames {
-    static let userDidDownloadedStations = NSNotification.Name("userDidDownloadedStations")
-    
-}
-
 struct UserDefaultsKeys {
-    static let fromStation = "fromStation"
-    static let toStation = "toStation"
-    static let date = "date"
+    static let firstStation = "firstStation"
+    static let secondStation = "secondStation"
 }
 
 struct AppEndPoints {

@@ -31,7 +31,7 @@ class ResultsViewModel: NSObject, ResultsNetworkingProtocol {
     
     func isSearchingCriterionMet(train: Train) -> Bool {
         //No need of date, because all the trains returned from the server are with today's date
-        guard let fromStationData = UserDefaults.standard.object(forKey: UserDefaultsKeys.fromStation) as? Data, let toStationData = UserDefaults.standard.object(forKey: UserDefaultsKeys.toStation) as? Data else {
+        guard let fromStationData = UserDefaults.standard.object(forKey: UserDefaultsKeys.firstStation) as? Data, let toStationData = UserDefaults.standard.object(forKey: UserDefaultsKeys.secondStation) as? Data else {
             return false
         }
         
@@ -101,7 +101,6 @@ extension ResultsViewModel: XMLParserDelegate {
     func parser(_ parser: XMLParser, didEndElement elementName: String, namespaceURI: String?, qualifiedName qName: String?) {
         if elementName == "ArrayOfObjTrainPositions" {
             print("Ended parsing...")
-            print(trains.value.count)
         }
     }
     
