@@ -12,13 +12,13 @@ import Bondage
 protocol SearchableOptionsNetworkingProtocol {
     var trainStations: BindableArray<Station> { get set }
     var searchedTrainStations:[Station] { get set }
-    func getStations(completion: (()->())?)
+    func getStations(presenter: UIViewController, completion: (()->())?)
 }
 
 protocol SearchableOptionsDelegate: AnyObject {
     var isFirstTextfieldTapped: Bool { get }
-    var firstSelectedStation: Station? { get set }
-    var secondSelectedStation: Station? { get set }
+    var fromStation: Station? { get set }
+    var toStation: Station? { get set }
     func setStationToFirstTextField()
     func setStationToSecondTextField()
 }
@@ -54,7 +54,7 @@ class SearchableOptionsViewController: UIViewController {
         DispatchQueue.main.async {
             self.activityIndicator?.startAnimating()
         }
-        viewModel?.getStations() {
+        viewModel?.getStations(presenter: self) {
             DispatchQueue.main.async {
                 self.activityIndicator?.stopAnimating()
             }
@@ -84,9 +84,9 @@ extension SearchableOptionsViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         guard let isFirstTextfieldTapped = delegate?.isFirstTextfieldTapped else { return }
         if isFirstTextfieldTapped {
-            delegate?.firstSelectedStation = isSearching ? viewModel?.searchedTrainStations[indexPath.row] : viewModel?.trainStations.value[indexPath.row]
+            delegate?.fromStation = isSearching ? viewModel?.searchedTrainStations[indexPath.row] : viewModel?.trainStations.value[indexPath.row]
         } else {
-            delegate?.secondSelectedStation = isSearching ? viewModel?.searchedTrainStations[indexPath.row] : viewModel?.trainStations.value[indexPath.row]
+            delegate?.toStation = isSearching ? viewModel?.searchedTrainStations[indexPath.row] : viewModel?.trainStations.value[indexPath.row]
         }
         
         dismiss(animated: true, completion: nil)

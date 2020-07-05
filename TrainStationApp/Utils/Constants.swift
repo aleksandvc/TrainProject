@@ -14,7 +14,9 @@ struct NotificationNames {
 }
 
 struct UserDefaultsKeys {
-    static let stations = "stations"
+    static let fromStation = "fromStation"
+    static let toStation = "toStation"
+    static let date = "date"
 }
 
 struct AppEndPoints {

@@ -16,6 +16,14 @@ class SearchableOptionsViewModel: NSObject, SearchableOptionsNetworkingProtocol 
     var trainStations = BindableArray<Station>([])
     var searchedStations:[Station] = []
     
+    var currentParsingElement = ""
+    var stationDescription = ""
+    var stationAlias = ""
+    var stationLatitude = 0.0
+    var stationLongitude = 0.0
+    var stationCode = ""
+    var stationId = 0
+    
     var searchedTrainStations: [Station] {
         get {
             return searchedStations
@@ -25,19 +33,6 @@ class SearchableOptionsViewModel: NSObject, SearchableOptionsNetworkingProtocol 
         }
     }
     
-    override init() {
-        super.init()
-        networkManager.delegate = self
-    }
-    
-    var currentParsingElement = ""
-    var stationDescription = ""
-    var stationAlias = ""
-    var stationLatitude = 0.0
-    var stationLongitude = 0.0
-    var stationCode = ""
-    var stationId = 0
-    
     var isSearching = false
     
     //Order stations by description
@@ -45,8 +40,13 @@ class SearchableOptionsViewModel: NSObject, SearchableOptionsNetworkingProtocol 
         trainStations.value = unsortedStations.sorted(by: { $0.description < $1.description })
     }
     
-    func getStations(completion: (()->())?) {
-        networkManager.getData(shouldGetStations: true, completion: completion)
+    override init() {
+        super.init()
+        networkManager.delegate = self
+    }
+    
+    func getStations(presenter: UIViewController, completion: (()->())?) {
+        networkManager.getData(presenter: presenter, shouldGetStations: true, completion: completion)
     }
 }
 
@@ -89,7 +89,7 @@ extension SearchableOptionsViewModel: XMLParserDelegate {
                 if let intId = Int(foundedChar) {
                     stationId = intId
                     let station = Station(description: stationDescription, alias: stationAlias, latitude: stationLatitude, longitude: stationLongitude, code: stationCode, id: stationId)
-                    self.trainStations.value.append(station)
+                    trainStations.value.append(station)
                 }
             }
         }

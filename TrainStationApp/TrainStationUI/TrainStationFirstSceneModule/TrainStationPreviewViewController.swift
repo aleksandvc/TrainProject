@@ -15,8 +15,6 @@ class TrainStationPreviewViewController: UIViewController {
     @IBOutlet weak var toStationTextField: UITextField!
     @IBOutlet weak var getInfoButton: UIButton!
     
-    let viewModel = TrainStationViewModel()
-    
     var isFirstTextfieldOpened = false
     
     var firstStation: Station?
@@ -28,26 +26,27 @@ class TrainStationPreviewViewController: UIViewController {
     }
     //MARK: Private functions
     private func toggleMainButton() {
-        let shouldBeEnabled = firstSelectedStation != nil && secondSelectedStation != nil
+        let shouldBeEnabled = fromStation != nil && toStation != nil
         getInfoButton.backgroundColor = shouldBeEnabled ? UIColor.systemBlue : UIColor.systemGray
         getInfoButton.isEnabled = shouldBeEnabled
     }
     
-    private func presentResultsVC() {
-        let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        let resultsVC = storyboard.instantiateViewController(withIdentifier: "ResultsViewController")
-        DispatchQueue.main.async {
-            self.present(resultsVC, animated: true, completion: nil)
-        }
-    }
-    
-    func presentSearchableOptionsVC() {
+    private func presentSearchableOptionsVC() {
         let searchableVC = SearchableOptionsViewController(nibName: "\(SearchableOptionsViewController.self)", bundle: nil)
         searchableVC.modalPresentationStyle = .formSheet
         searchableVC.delegate = self
         searchableVC.viewModel = SearchableOptionsViewModel()
         DispatchQueue.main.async {
             self.present(searchableVC, animated: true, completion: nil)
+        }
+    }
+    
+    private func presentResultsVC() {
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        guard let resultsVC = storyboard.instantiateViewController(withIdentifier: "ResultsViewController") as? ResultsViewController else { return }
+        resultsVC.viewModel = ResultsViewModel()
+        DispatchQueue.main.async {
+            self.present(resultsVC, animated: true, completion: nil)
         }
     }
     
@@ -61,7 +60,7 @@ extension TrainStationPreviewViewController: SearchableOptionsDelegate {
         return isFirstTextfieldOpened
     }
     
-    var firstSelectedStation: Station? {
+    var fromStation: Station? {
         get {
             return firstStation
         }
@@ -70,7 +69,7 @@ extension TrainStationPreviewViewController: SearchableOptionsDelegate {
         }
     }
     
-    var secondSelectedStation: Station? {
+    var toStation: Station? {
         get {
             return secondStation
         }
@@ -80,23 +79,25 @@ extension TrainStationPreviewViewController: SearchableOptionsDelegate {
     }
     
     func setStationToFirstTextField() {
-        guard let station = firstSelectedStation else { return }
-        if station.code == secondSelectedStation?.code {
+        guard let station = fromStation else { return }
+        if station.code == toStation?.code {
             fromStationTextField.text = "Please choose different than the other choosen station"
-            firstSelectedStation = nil
+            fromStation = nil
         } else {
             fromStationTextField.text = "\(station.description) - code: \(station.code)"
+            UserDefaults.standard.set(try? PropertyListEncoder().encode(station), forKey: UserDefaultsKeys.fromStation)
         }
         toggleMainButton()
     }
     
     func setStationToSecondTextField() {
-        guard let station = secondSelectedStation else { return }
-        if station.code == firstSelectedStation?.code {
+        guard let station = toStation else { return }
+        if station.code == fromStation?.code {
             toStationTextField.text = "Please choose different than the other choosen station"
-            secondSelectedStation = nil
+            toStation = nil
         } else {
             toStationTextField.text = "\(station.description) - code: \(station.code)"
+            UserDefaults.standard.set(try? PropertyListEncoder().encode(station), forKey: UserDefaultsKeys.toStation)
         }
         toggleMainButton()
     }
