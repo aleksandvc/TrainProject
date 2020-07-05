@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16086"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="SearchableOptionsViewController" customModule="TrainStationApp" customModuleProvider="target">
+            <connections>
+                <outlet property="entriesTableView" destination="l1n-uh-YZg" id="gV9-oX-LkS"/>
+                <outlet property="searchBar" destination="8UM-Wi-Wwy" id="f3w-tf-jBa"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <searchBar contentMode="redraw" placeholder="Search station" translatesAutoresizingMaskIntoConstraints="NO" id="8UM-Wi-Wwy">
+                    <rect key="frame" x="10" y="64" width="394" height="30"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="30" id="MJj-Me-W4R"/>
+                    </constraints>
+                    <color key="barTintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <textInputTraits key="textInputTraits"/>
+                    <connections>
+                        <outlet property="delegate" destination="-1" id="osC-d0-Jf1"/>
+                    </connections>
+                </searchBar>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="l1n-uh-YZg">
+                    <rect key="frame" x="0.0" y="124" width="414" height="738"/>
+                    <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                    <connections>
+                        <outlet property="dataSource" destination="-1" id="DaF-qh-hNk"/>
+                        <outlet property="delegate" destination="-1" id="a3M-UH-xei"/>
+                    </connections>
+                </tableView>
+            </subviews>
+            <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+            <constraints>
+                <constraint firstItem="l1n-uh-YZg" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="5jf-OZ-1Xy"/>
+                <constraint firstItem="8UM-Wi-Wwy" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" constant="-10" id="HaY-Jk-UVa"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="l1n-uh-YZg" secondAttribute="bottom" id="Ldy-c8-iqN"/>
+                <constraint firstItem="l1n-uh-YZg" firstAttribute="top" secondItem="8UM-Wi-Wwy" secondAttribute="bottom" constant="30" id="M8Q-qq-ZxV"/>
+                <constraint firstItem="8UM-Wi-Wwy" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="20" id="iZf-eC-Ug2"/>
+                <constraint firstItem="8UM-Wi-Wwy" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="10" id="rhE-vH-ulo"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="l1n-uh-YZg" secondAttribute="trailing" id="y9X-iT-U9e"/>
+            </constraints>
+            <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
+            <point key="canvasLocation" x="139" y="117"/>
+        </view>
+    </objects>
+</document>

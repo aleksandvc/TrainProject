@@ -3,13 +3,25 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		02EC3335D9CE4E9F23AAB1AD /* Pods_TrainStationApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 228203621FDBBF6AAAF8791D /* Pods_TrainStationApp.framework */; };
+		B2183AC724AE195C00E0197F /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2183AC624AE195C00E0197F /* NetworkManager.swift */; };
+		B2183AD524AE2CD400E0197F /* SearchableOptionsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B2183AD324AE2CD400E0197F /* SearchableOptionsViewController.xib */; };
+		B2183AD624AE2CD400E0197F /* SearchableOptionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2183AD424AE2CD400E0197F /* SearchableOptionsViewController.swift */; };
+		B2183AD924AE2F9A00E0197F /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2183AD824AE2F9A00E0197F /* Constants.swift */; };
+		B2183AE224AF503E00E0197F /* SearchableOptionsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2183AE124AF503E00E0197F /* SearchableOptionsViewModel.swift */; };
+		B2183AE524B0BC7600E0197F /* ResultsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2183AE424B0BC7600E0197F /* ResultsViewController.swift */; };
+		B2183AE724B0BE0C00E0197F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B2183AE624B0BE0C00E0197F /* Main.storyboard */; };
+		B2183AEE24B0FC4A00E0197F /* ResultsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2183AED24B0FC4A00E0197F /* ResultsViewModel.swift */; };
+		B2183AF024B1C01B00E0197F /* Train.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2183AEF24B1C01B00E0197F /* Train.swift */; };
+		B2183AF324B1C6AE00E0197F /* UITextFieldExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2183AF224B1C6AE00E0197F /* UITextFieldExtension.swift */; };
+		B2183AF724B1D78600E0197F /* ResultsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2183AF524B1D78600E0197F /* ResultsTableViewCell.swift */; };
+		B2183AF824B1D78600E0197F /* ResultsTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B2183AF624B1D78600E0197F /* ResultsTableViewCell.xib */; };
 		B2965C5F24ACCEC000785B47 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2965C5E24ACCEC000785B47 /* AppDelegate.swift */; };
 		B2965C6124ACCEC000785B47 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2965C6024ACCEC000785B47 /* SceneDelegate.swift */; };
-		B2965C6624ACCEC000785B47 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B2965C6424ACCEC000785B47 /* Main.storyboard */; };
 		B2965C6824ACCEC200785B47 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B2965C6724ACCEC200785B47 /* Assets.xcassets */; };
 		B2965C6B24ACCEC200785B47 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B2965C6924ACCEC200785B47 /* LaunchScreen.storyboard */; };
 		B2965C7324ACCF7100785B47 /* TrainStationPreviewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2965C7224ACCF7100785B47 /* TrainStationPreviewViewController.swift */; };
@@ -17,15 +29,29 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		228203621FDBBF6AAAF8791D /* Pods_TrainStationApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TrainStationApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		8652C3C85A37AE0F30045818 /* Pods-TrainStationApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TrainStationApp.release.xcconfig"; path = "Target Support Files/Pods-TrainStationApp/Pods-TrainStationApp.release.xcconfig"; sourceTree = "<group>"; };
+		B2183AC624AE195C00E0197F /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
+		B2183AD324AE2CD400E0197F /* SearchableOptionsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SearchableOptionsViewController.xib; sourceTree = "<group>"; };
+		B2183AD424AE2CD400E0197F /* SearchableOptionsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchableOptionsViewController.swift; sourceTree = "<group>"; };
+		B2183AD824AE2F9A00E0197F /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		B2183AE124AF503E00E0197F /* SearchableOptionsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchableOptionsViewModel.swift; sourceTree = "<group>"; };
+		B2183AE424B0BC7600E0197F /* ResultsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultsViewController.swift; sourceTree = "<group>"; };
+		B2183AE624B0BE0C00E0197F /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Main.storyboard; path = ../../.Trash/Main.storyboard; sourceTree = "<group>"; };
+		B2183AED24B0FC4A00E0197F /* ResultsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultsViewModel.swift; sourceTree = "<group>"; };
+		B2183AEF24B1C01B00E0197F /* Train.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Train.swift; sourceTree = "<group>"; };
+		B2183AF224B1C6AE00E0197F /* UITextFieldExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITextFieldExtension.swift; sourceTree = "<group>"; };
+		B2183AF524B1D78600E0197F /* ResultsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultsTableViewCell.swift; sourceTree = "<group>"; };
+		B2183AF624B1D78600E0197F /* ResultsTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ResultsTableViewCell.xib; sourceTree = "<group>"; };
 		B2965C5B24ACCEC000785B47 /* TrainStationApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TrainStationApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B2965C5E24ACCEC000785B47 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B2965C6024ACCEC000785B47 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		B2965C6524ACCEC000785B47 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		B2965C6724ACCEC200785B47 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B2965C6A24ACCEC200785B47 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		B2965C6C24ACCEC200785B47 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B2965C7224ACCF7100785B47 /* TrainStationPreviewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrainStationPreviewViewController.swift; sourceTree = "<group>"; };
 		B2965C7C24ACE09100785B47 /* Station.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Station.swift; sourceTree = "<group>"; };
+		FCC0259600BAD9B58FC3564F /* Pods-TrainStationApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TrainStationApp.debug.xcconfig"; path = "Target Support Files/Pods-TrainStationApp/Pods-TrainStationApp.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -33,17 +59,107 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				02EC3335D9CE4E9F23AAB1AD /* Pods_TrainStationApp.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0654C8F0AEEE877B159E0F57 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				FCC0259600BAD9B58FC3564F /* Pods-TrainStationApp.debug.xcconfig */,
+				8652C3C85A37AE0F30045818 /* Pods-TrainStationApp.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		7F820CE7175247BE0194A4B6 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				228203621FDBBF6AAAF8791D /* Pods_TrainStationApp.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		B2183AC524AE191F00E0197F /* Networking */ = {
+			isa = PBXGroup;
+			children = (
+				B2183AC624AE195C00E0197F /* NetworkManager.swift */,
+			);
+			path = Networking;
+			sourceTree = "<group>";
+		};
+		B2183AD224AE2CD400E0197F /* SearchableOptionsModule */ = {
+			isa = PBXGroup;
+			children = (
+				B2183ADF24AF4FBD00E0197F /* ViewModel */,
+				B2183AD324AE2CD400E0197F /* SearchableOptionsViewController.xib */,
+				B2183AD424AE2CD400E0197F /* SearchableOptionsViewController.swift */,
+			);
+			path = SearchableOptionsModule;
+			sourceTree = "<group>";
+		};
+		B2183AD724AE2F8800E0197F /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				B2183AF124B1C69D00E0197F /* Extensions */,
+				B2183AD824AE2F9A00E0197F /* Constants.swift */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
+		B2183ADF24AF4FBD00E0197F /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				B2183AE124AF503E00E0197F /* SearchableOptionsViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		B2183AE024AF4FEE00E0197F /* TrainStationFirstSceneModule */ = {
+			isa = PBXGroup;
+			children = (
+				B2965C7224ACCF7100785B47 /* TrainStationPreviewViewController.swift */,
+			);
+			path = TrainStationFirstSceneModule;
+			sourceTree = "<group>";
+		};
+		B2183AE324B0BC4C00E0197F /* ResultsModule */ = {
+			isa = PBXGroup;
+			children = (
+				B2183AF424B1D76800E0197F /* ResultsTableViewCell */,
+				B2183AE424B0BC7600E0197F /* ResultsViewController.swift */,
+				B2183AED24B0FC4A00E0197F /* ResultsViewModel.swift */,
+			);
+			path = ResultsModule;
+			sourceTree = "<group>";
+		};
+		B2183AF124B1C69D00E0197F /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				B2183AF224B1C6AE00E0197F /* UITextFieldExtension.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		B2183AF424B1D76800E0197F /* ResultsTableViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				B2183AF524B1D78600E0197F /* ResultsTableViewCell.swift */,
+				B2183AF624B1D78600E0197F /* ResultsTableViewCell.xib */,
+			);
+			path = ResultsTableViewCell;
+			sourceTree = "<group>";
+		};
 		B2965C5224ACCEC000785B47 = {
 			isa = PBXGroup;
 			children = (
 				B2965C5D24ACCEC000785B47 /* TrainStationApp */,
 				B2965C5C24ACCEC000785B47 /* Products */,
+				0654C8F0AEEE877B159E0F57 /* Pods */,
+				7F820CE7175247BE0194A4B6 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -58,11 +174,13 @@
 		B2965C5D24ACCEC000785B47 /* TrainStationApp */ = {
 			isa = PBXGroup;
 			children = (
+				B2183AD724AE2F8800E0197F /* Utils */,
+				B2183AC524AE191F00E0197F /* Networking */,
 				B2965C8324AE125300785B47 /* TrainStationUI */,
 				B2965C7B24ACE07300785B47 /* Model */,
 				B2965C5E24ACCEC000785B47 /* AppDelegate.swift */,
+				B2183AE624B0BE0C00E0197F /* Main.storyboard */,
 				B2965C6024ACCEC000785B47 /* SceneDelegate.swift */,
-				B2965C6424ACCEC000785B47 /* Main.storyboard */,
 				B2965C6724ACCEC200785B47 /* Assets.xcassets */,
 				B2965C6924ACCEC200785B47 /* LaunchScreen.storyboard */,
 				B2965C6C24ACCEC200785B47 /* Info.plist */,
@@ -74,6 +192,7 @@
 			isa = PBXGroup;
 			children = (
 				B2965C7C24ACE09100785B47 /* Station.swift */,
+				B2183AEF24B1C01B00E0197F /* Train.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -81,7 +200,9 @@
 		B2965C8324AE125300785B47 /* TrainStationUI */ = {
 			isa = PBXGroup;
 			children = (
-				B2965C7224ACCF7100785B47 /* TrainStationPreviewViewController.swift */,
+				B2183AE324B0BC4C00E0197F /* ResultsModule */,
+				B2183AE024AF4FEE00E0197F /* TrainStationFirstSceneModule */,
+				B2183AD224AE2CD400E0197F /* SearchableOptionsModule */,
 			);
 			path = TrainStationUI;
 			sourceTree = "<group>";
@@ -93,9 +214,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = B2965C6F24ACCEC200785B47 /* Build configuration list for PBXNativeTarget "TrainStationApp" */;
 			buildPhases = (
+				5D647B09DC7D304FDCBCA46B /* [CP] Check Pods Manifest.lock */,
 				B2965C5724ACCEC000785B47 /* Sources */,
 				B2965C5824ACCEC000785B47 /* Frameworks */,
 				B2965C5924ACCEC000785B47 /* Resources */,
+				FD1181DFB503D7D14E49A5FB /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -145,36 +268,81 @@
 			buildActionMask = 2147483647;
 			files = (
 				B2965C6B24ACCEC200785B47 /* LaunchScreen.storyboard in Resources */,
+				B2183AF824B1D78600E0197F /* ResultsTableViewCell.xib in Resources */,
+				B2183AD524AE2CD400E0197F /* SearchableOptionsViewController.xib in Resources */,
 				B2965C6824ACCEC200785B47 /* Assets.xcassets in Resources */,
-				B2965C6624ACCEC000785B47 /* Main.storyboard in Resources */,
+				B2183AE724B0BE0C00E0197F /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		5D647B09DC7D304FDCBCA46B /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-TrainStationApp-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		FD1181DFB503D7D14E49A5FB /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-TrainStationApp/Pods-TrainStationApp-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-TrainStationApp/Pods-TrainStationApp-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-TrainStationApp/Pods-TrainStationApp-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		B2965C5724ACCEC000785B47 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B2183AC724AE195C00E0197F /* NetworkManager.swift in Sources */,
+				B2183AD624AE2CD400E0197F /* SearchableOptionsViewController.swift in Sources */,
+				B2183AF724B1D78600E0197F /* ResultsTableViewCell.swift in Sources */,
 				B2965C5F24ACCEC000785B47 /* AppDelegate.swift in Sources */,
+				B2183AE524B0BC7600E0197F /* ResultsViewController.swift in Sources */,
+				B2183AF024B1C01B00E0197F /* Train.swift in Sources */,
 				B2965C6124ACCEC000785B47 /* SceneDelegate.swift in Sources */,
+				B2183AE224AF503E00E0197F /* SearchableOptionsViewModel.swift in Sources */,
+				B2183AF324B1C6AE00E0197F /* UITextFieldExtension.swift in Sources */,
 				B2965C7324ACCF7100785B47 /* TrainStationPreviewViewController.swift in Sources */,
 				B2965C7D24ACE09100785B47 /* Station.swift in Sources */,
+				B2183AEE24B0FC4A00E0197F /* ResultsViewModel.swift in Sources */,
+				B2183AD924AE2F9A00E0197F /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		B2965C6424ACCEC000785B47 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				B2965C6524ACCEC000785B47 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		B2965C6924ACCEC200785B47 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -302,11 +470,13 @@
 		};
 		B2965C7024ACCEC200785B47 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = FCC0259600BAD9B58FC3564F /* Pods-TrainStationApp.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = R98MZ543XM;
 				INFOPLIST_FILE = TrainStationApp/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -320,11 +490,13 @@
 		};
 		B2965C7124ACCEC200785B47 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 8652C3C85A37AE0F30045818 /* Pods-TrainStationApp.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = R98MZ543XM;
 				INFOPLIST_FILE = TrainStationApp/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
