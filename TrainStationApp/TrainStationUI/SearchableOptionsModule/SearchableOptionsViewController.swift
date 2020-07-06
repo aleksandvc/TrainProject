@@ -25,8 +25,8 @@ protocol SearchableOptionsDelegate: AnyObject {
 
 class SearchableOptionsViewController: UIViewController {
     
-    @IBOutlet weak var searchBar: UISearchBar!
-    @IBOutlet weak var entriesTableView: UITableView!
+    @IBOutlet private weak var searchBar: UISearchBar!
+    @IBOutlet private weak var entriesTableView: UITableView!
     
     var activityIndicator: UIActivityIndicatorView?
     
@@ -38,10 +38,9 @@ class SearchableOptionsViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        searchBar.layer.borderColor = UIColor.systemGray.cgColor
+        
+        searchBar.layer.borderColor = UIColor.white.cgColor
         searchBar.layer.borderWidth = 1
-        searchBar.layer.cornerRadius = 10.0
-        searchBar.clipsToBounds = true
         
         activityIndicator = getActivityIndicator()
         
