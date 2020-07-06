@@ -30,9 +30,7 @@ class ResultsViewController: UIViewController {
         setupTableView()
         activityIndicator = getActivityIndicator()
         viewModel?.trains.bind { [weak self] _ in
-            guard let strongSelf = self else { return }
             DispatchQueue.main.async {
-                strongSelf.noAvailableTrainsView.isHidden = strongSelf.viewModel?.trains.value.count != 0
                 self?.resultsTableView.reloadData()
             }
         }
@@ -43,6 +41,7 @@ class ResultsViewController: UIViewController {
         
         viewModel?.getTrains(presenter: self) {
             DispatchQueue.main.async {
+                self.resultsTableView.isHidden = self.viewModel?.trains.value.count == 0
                 self.activityIndicator?.stopAnimating()
             }
         }
