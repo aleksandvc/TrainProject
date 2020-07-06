@@ -11,9 +11,9 @@ import Foundation
 
 class TrainStationPreviewViewController: UIViewController {
     
-    @IBOutlet weak var firstStationTextField: UITextField!
-    @IBOutlet weak var secondStationTextField: UITextField!
-    @IBOutlet weak var getInfoButton: UIButton!
+    @IBOutlet private weak var firstStationTextField: UITextField!
+    @IBOutlet private weak var secondStationTextField: UITextField!
+    @IBOutlet private weak var getInfoButton: UIButton!
     
     var isFirstTextfieldOpened = false
     

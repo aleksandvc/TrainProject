@@ -16,9 +16,9 @@ protocol ResultsNetworkingProtocol {
 
 class ResultsViewController: UIViewController {
 
-    @IBOutlet weak var resultsTableView: UITableView!
-    @IBOutlet weak var anotherRouteButton: UIButton!
-    @IBOutlet weak var noAvailableTrainsView: UIView!
+    @IBOutlet private weak var resultsTableView: UITableView!
+    @IBOutlet private weak var anotherRouteButton: UIButton!
+    @IBOutlet private weak var noAvailableTrainsView: UIView!
     
     var viewModel: ResultsNetworkingProtocol? = nil
     
