@@ -11,8 +11,6 @@ import Bondage
 
 class ResultsViewModel: NSObject, ResultsNetworkingProtocol {
    
-    let networkManager = NetworkManager()
-    
     var trains = BindableArray<Train>([])
     
     var currentParsingElement = ""
@@ -24,12 +22,7 @@ class ResultsViewModel: NSObject, ResultsNetworkingProtocol {
     var publicMessage = ""
     var direction = ""
     
-    override init() {
-        super.init()
-        networkManager.delegate = self
-    }
-    
-    func isSearchingCriterionMet(train: Train) -> Bool {
+    private func isSearchingCriterionMet(train: Train) -> Bool {
         //No need of date, because all the trains returned from the server are with today's date
         guard let fromStationData = UserDefaults.standard.object(forKey: UserDefaultsKeys.firstStation) as? Data, let toStationData = UserDefaults.standard.object(forKey: UserDefaultsKeys.secondStation) as? Data else {
             return false
@@ -43,8 +36,10 @@ class ResultsViewModel: NSObject, ResultsNetworkingProtocol {
         return isCriterionMet
     }
     
-    func getTrains(presenter: UIViewController, completion: (() -> ())?) {
-        networkManager.getData(presenter: presenter, shouldGetStations: false, completion: completion)
+    func getTrains(completion: ((String?) -> ())?) {
+        NetworkManager.shared.getData(parserDelegate: self, shouldGetStations: false) { errorDescription in
+            completion?(errorDescription)
+        }
     }
 }
 
@@ -64,30 +59,30 @@ extension ResultsViewModel: XMLParserDelegate {
         
         if (!foundedChar.isEmpty) {
             
-            if currentParsingElement == "TrainStatus" {
+            if currentParsingElement == ResponceKeys.trainStatus {
                 trainStatus = foundedChar == "N" ? TrainStatus.N : TrainStatus.R
                 
             }
-            else if currentParsingElement == "TrainLatitude" {
+            else if currentParsingElement == ResponceKeys.trainLatitude {
                 if let doubleLatitude = Double(foundedChar) {
                     latitude = doubleLatitude
                 }
             }
-            else if currentParsingElement == "TrainLongitude" {
+            else if currentParsingElement == ResponceKeys.trainLongitude {
                 if let doubleLongitude = Double(foundedChar) {
                     longitude = doubleLongitude
                 }
             }
-            else if currentParsingElement == "TrainCode" {
+            else if currentParsingElement == ResponceKeys.trainCode {
                 code = foundedChar
             }
-            else if currentParsingElement == "TrainDate" {
+            else if currentParsingElement == ResponceKeys.trainDate {
                 date = foundedChar
             }
-            else if currentParsingElement == "PublicMessage" {
+            else if currentParsingElement == ResponceKeys.publicMessage {
                 publicMessage = foundedChar.replacingOccurrences(of: "\\n", with: " ")
             }
-            else if currentParsingElement == "Direction" {
+            else if currentParsingElement == ResponceKeys.trainDirection {
                 direction = foundedChar
                 let train = Train(trainStatus: trainStatus, latitude: latitude, longitude: longitude, code: code, date: date, publicMessage: publicMessage, direction: direction)
                 if isSearchingCriterionMet(train: train) {

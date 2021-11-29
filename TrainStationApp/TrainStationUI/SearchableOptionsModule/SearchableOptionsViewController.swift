@@ -8,19 +8,23 @@
 
 import UIKit
 import Bondage
+import Alamofire
 
 protocol SearchableOptionsNetworkingProtocol {
     var trainStations: BindableArray<Station> { get set }
     var searchedTrainStations:[Station] { get set }
-    func getStations(presenter: UIViewController, completion: (()->())?)
+    func getStations(completion: ((String?)->())?)
 }
 
 protocol SearchableOptionsDelegate: AnyObject {
     var isFirstTextfieldTapped: Bool { get }
+    var selectedStationTextFieldTapped: Bool { get }
     var firstStation: Station? { get set }
     var secondStation: Station? { get set }
+    var moreInfoStation: Station? { get set }
     func setStationToFirstTextField()
     func setStationToSecondTextField()
+    func setSelectedForMoreInfoStationToTextField()
 }
 
 class SearchableOptionsViewController: UIViewController {
@@ -53,10 +57,13 @@ class SearchableOptionsViewController: UIViewController {
         DispatchQueue.main.async {
             self.activityIndicator?.startAnimating()
         }
-        viewModel?.getStations(presenter: self) {
+        viewModel?.getStations() { errorDescription in
             DispatchQueue.main.async {
                 self.activityIndicator?.stopAnimating()
             }
+            
+            guard let errorDesc = errorDescription else { return }
+            self.showErrorPromt(errorDesc: errorDesc)
         }
     }
     
@@ -65,25 +72,18 @@ class SearchableOptionsViewController: UIViewController {
         guard let isFirstTextfieldTapped = delegate?.isFirstTextfieldTapped else { return }
         DispatchQueue.main.async {
             isFirstTextfieldTapped ? self.delegate?.setStationToFirstTextField() : self.delegate?.setStationToSecondTextField()
+            self.delegate?.setSelectedForMoreInfoStationToTextField()
         }
-    }
-    
-    //Showing small loading circle while the request is executing
-    private func getActivityIndicator() -> UIActivityIndicatorView {
-        let indicator: UIActivityIndicatorView = UIActivityIndicatorView(style: UIActivityIndicatorView.Style.medium)
-        indicator.frame = CGRect(x: 0, y: 0, width: 40, height: 40)
-        indicator.center = view.center
-        self.view.addSubview(indicator)
-        self.view.bringSubviewToFront(indicator)
-        return indicator
     }
 }
 
 extension SearchableOptionsViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        guard let isFirstTextfieldTapped = delegate?.isFirstTextfieldTapped else { return }
+        guard let isFirstTextfieldTapped = delegate?.isFirstTextfieldTapped, let isSelectedStationTextFieldTapped = delegate?.selectedStationTextFieldTapped else { return }
         if isFirstTextfieldTapped {
             delegate?.firstStation = isSearching ? viewModel?.searchedTrainStations[indexPath.row] : viewModel?.trainStations.value[indexPath.row]
+        } else if isSelectedStationTextFieldTapped  {
+            delegate?.moreInfoStation = isSearching ? viewModel?.searchedTrainStations[indexPath.row] : viewModel?.trainStations.value[indexPath.row]
         } else {
             delegate?.secondStation = isSearching ? viewModel?.searchedTrainStations[indexPath.row] : viewModel?.trainStations.value[indexPath.row]
         }

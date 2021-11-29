@@ -8,10 +8,9 @@
 
 import Foundation
 import Bondage
+import Alamofire
 
 class SearchableOptionsViewModel: NSObject, SearchableOptionsNetworkingProtocol {
-    
-    let networkManager = NetworkManager()
     
     var trainStations = BindableArray<Station>([])
     var searchedStations:[Station] = []
@@ -40,13 +39,10 @@ class SearchableOptionsViewModel: NSObject, SearchableOptionsNetworkingProtocol 
         trainStations.value = unsortedStations.sorted(by: { $0.description < $1.description })
     }
     
-    override init() {
-        super.init()
-        networkManager.delegate = self
-    }
-    
-    func getStations(presenter: UIViewController, completion: (()->())?) {
-        networkManager.getData(presenter: presenter, shouldGetStations: true, completion: completion)
+    func getStations(completion: ((String?)->())?) {
+        NetworkManager.shared.getData(parserDelegate: self, shouldGetStations: true) { errorDescription in
+            completion?(errorDescription)
+        }
     }
 }
 
@@ -66,26 +62,26 @@ extension SearchableOptionsViewModel: XMLParserDelegate {
         
         if (!foundedChar.isEmpty) {
             
-            if currentParsingElement == "StationDesc" {
+            if currentParsingElement == ResponceKeys.stationDecription {
                 stationDescription = foundedChar
             }
-            else if currentParsingElement == "StationAlias" {
+            else if currentParsingElement == ResponceKeys.stationAlias {
                 stationAlias = foundedChar
             }
-            else if currentParsingElement == "StationLatitude" {
+            else if currentParsingElement == ResponceKeys.stationLatitude {
                 if let doubleLatitude = Double(foundedChar) {
                     stationLatitude = doubleLatitude
                 }
             }
-            else if currentParsingElement == "StationLongitude" {
+            else if currentParsingElement == ResponceKeys.stationLongitude {
                 if let doubleLongitude = Double(foundedChar) {
                     stationLongitude = doubleLongitude
                 }
             }
-            else if currentParsingElement == "StationCode" {
+            else if currentParsingElement == ResponceKeys.stationCode {
                 stationCode = foundedChar
             }
-            else if currentParsingElement == "StationId" {
+            else if currentParsingElement == ResponceKeys.stationID {
                 if let intId = Int(foundedChar) {
                     stationId = intId
                     let station = Station(description: stationDescription, alias: stationAlias, latitude: stationLatitude, longitude: stationLongitude, code: stationCode, id: stationId)

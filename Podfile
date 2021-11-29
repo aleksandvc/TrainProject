@@ -8,5 +8,6 @@ target 'TrainStationApp' do
   # Pods for TrainStationApp
 
 pod "Bondage"
+pod 'Alamofire', '~> 5.4'
 
 end

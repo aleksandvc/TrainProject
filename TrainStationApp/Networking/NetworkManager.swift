@@ -8,32 +8,54 @@
 
 import Foundation
 import UIKit
+import Alamofire
 
 class NetworkManager {
+    private static var networkManager: NetworkManager!
     
-    weak var delegate: XMLParserDelegate?
-    
-    func getData(presenter: UIViewController, shouldGetStations: Bool, completion: (()->())?) {
-        guard let url = URL(string: shouldGetStations ? AppEndPoints.getStationsURL : AppEndPoints.getTrainsURL) else { return }
-        
-        let task = URLSession.shared.dataTask(with: url, completionHandler: { (data, response, error) in
-            
-            if let error = error {
-                let alert = UIAlertController(title: "Something went wrong", message: error.localizedDescription, preferredStyle: .alert)
-                let action = UIAlertAction(title: "OK", style: .default, handler: nil)
-                alert.addAction(action)
-                DispatchQueue.main.async {
-                    presenter.present(alert, animated: false, completion: nil)
-                }
+    static var shared: NetworkManager {
+        get {
+            if networkManager == nil {
+                networkManager = NetworkManager()
             }
-            
-            guard let data = data else { return }
-            let parser = XMLParser(data: data)
-            parser.delegate = self.delegate
-            parser.parse()
-            completion?()
-        })
+            return networkManager
+        }
+    }
+    
+    func getData(parserDelegate: XMLParserDelegate, shouldGetStations: Bool, completion: ((String?)->())?) {
+        let url = shouldGetStations ? AppEndPoints.getStationsURL : AppEndPoints.getTrainsURL
         
-        task.resume()
+        AF.request(url, method: .get, parameters: nil, encoding: URLEncoding.default).response { response in
+            switch response.result {
+            case .success(let value):
+                guard let responceData = value else  { return }
+                let parser = XMLParser(data: responceData)
+                parser.delegate = parserDelegate
+                parser.parse()
+                completion?(nil)
+                
+            case .failure(let error):
+                completion?(error.localizedDescription)
+            }
+        }
+    }
+    
+    func getTrainsForStation(stationDescription: String, parserDelegate: XMLParserDelegate, completion: ((String?)->())?) {
+        let url = AppEndPoints.getTrainsForStation
+        let parameters = ["StationDesc": stationDescription]
+        AF.request(url, method: .get, parameters: parameters, encoding: URLEncoding.default).response { response in
+            switch response.result {
+            case .success(let value):
+                guard let responceData = value else  { return }
+                let parser = XMLParser(data: responceData)
+                parser.delegate = parserDelegate
+                parser.parse()
+                completion?(nil)
+            case .failure(let error):
+                completion?(error.localizedDescription)
+            }
+        }
+        
+        
     }
 }

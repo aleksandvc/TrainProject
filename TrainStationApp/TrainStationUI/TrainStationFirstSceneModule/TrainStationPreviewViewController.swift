@@ -14,11 +14,16 @@ class TrainStationPreviewViewController: UIViewController {
     @IBOutlet private weak var firstStationTextField: UITextField!
     @IBOutlet private weak var secondStationTextField: UITextField!
     @IBOutlet private weak var getInfoButton: UIButton!
+    @IBOutlet weak var selectedStationTextField: UITextField!
+    @IBOutlet weak var showTrainsButton: UIButton!
     
     var isFirstTextfieldOpened = false
+    var isSelectedStationTextFieldTapped = false
     
     var firstSelectedStation: Station?
     var secondselectedStation: Station?
+    
+    var moreInfoSelectedStation: Station?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -29,6 +34,12 @@ class TrainStationPreviewViewController: UIViewController {
         let shouldBeEnabled = firstSelectedStation != nil && secondselectedStation != nil
         getInfoButton.backgroundColor = shouldBeEnabled ? UIColor.systemBlue : UIColor.systemGray
         getInfoButton.isEnabled = shouldBeEnabled
+    }
+    
+    private func toggleShowTrainsButton() {
+        let shouldBeEnabled = moreInfoSelectedStation != nil
+        showTrainsButton.backgroundColor = shouldBeEnabled ? UIColor.systemBlue : UIColor.systemGray
+        showTrainsButton.isEnabled = shouldBeEnabled
     }
     
     private func presentSearchableOptionsVC() {
@@ -50,14 +61,31 @@ class TrainStationPreviewViewController: UIViewController {
         }
     }
     
+    private func presentResultsForStationVC() {
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        guard let resultsVC = storyboard.instantiateViewController(withIdentifier: "ResultsForStationViewController") as? ResultsForStationViewController else { return }
+        resultsVC.viewModel = ResultsForStationViewModel(selectedStation: moreInfoSelectedStation!)
+        DispatchQueue.main.async {
+            self.present(resultsVC, animated: true, completion: nil)
+        }
+    }
+    
     @IBAction func didTapGetInfoButton(_ sender: Any) {
         presentResultsVC()
-    }    
+    }
+    
+    @IBAction func didTapShowTrainsButton(_ sender: Any) {
+        presentResultsForStationVC()
+    }
 }
 
 extension TrainStationPreviewViewController: SearchableOptionsDelegate {
     var isFirstTextfieldTapped: Bool {
         return isFirstTextfieldOpened
+    }
+    
+    var selectedStationTextFieldTapped: Bool {
+        return isSelectedStationTextFieldTapped
     }
     
     var firstStation: Station? {
@@ -75,6 +103,15 @@ extension TrainStationPreviewViewController: SearchableOptionsDelegate {
         }
         set {
             secondselectedStation = newValue
+        }
+    }
+    
+    var moreInfoStation: Station? {
+        get {
+            return moreInfoSelectedStation
+        }
+        set {
+            moreInfoSelectedStation = newValue
         }
     }
     
@@ -102,13 +139,21 @@ extension TrainStationPreviewViewController: SearchableOptionsDelegate {
         toggleMainButton()
     }
     
+    func setSelectedForMoreInfoStationToTextField() {
+        guard let station = moreInfoSelectedStation else { return }
+        
+        selectedStationTextField.text = "\(station.description) - code: \(station.code)"
+        UserDefaults.standard.set(try? PropertyListEncoder().encode(station), forKey: UserDefaultsKeys.moreInfoSelectedStation)
+        toggleShowTrainsButton()
+    }
     
 }
 
 extension TrainStationPreviewViewController: UITextFieldDelegate {
     
     func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool {
-        isFirstTextfieldOpened = textField.tag == 1 ? true : false
+        isFirstTextfieldOpened = textField.tag == 1
+        isSelectedStationTextFieldTapped = textField.tag == 3
         presentSearchableOptionsVC()
         
         return false
