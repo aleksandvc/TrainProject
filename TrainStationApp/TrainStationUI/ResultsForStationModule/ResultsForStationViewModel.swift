@@ -59,7 +59,6 @@ extension ResultsForStationViewModel: XMLParserDelegate {
             else if currentParsingElement == ResponceKeys.trainDirection{
                 direction = foundedChar
                 let stationData = StationData(trainCode: trainCode, direction: direction, destination: destination, expectedArrival: expectedArrival)
-                print("HEHEHEHEH \(stationData)")
                 trains.value.append(stationData)
             }
         }

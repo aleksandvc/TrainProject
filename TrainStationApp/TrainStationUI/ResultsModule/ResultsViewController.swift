@@ -53,16 +53,6 @@ class ResultsViewController: UIViewController {
             guard let errorDesc = errorDescription else { return }
             self.showErrorPromt(errorDesc: errorDesc)
         }
-        
-        viewModel?.getTrains() { error in
-            DispatchQueue.main.async {
-                self.resultsTableView.isHidden = self.viewModel?.trains.value.count == 0
-                self.activityIndicator?.stopAnimating()
-            }
-            
-            guard let errorDesc = error else { return }
-            self.showErrorPromt(errorDesc: errorDesc)
-        }
     }
     
     private func setupTableView() {
