@@ -11,8 +11,6 @@
 		2E4989522753E699009C5C8C /* ResultsForStationTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E4989502753E699009C5C8C /* ResultsForStationTableViewCell.swift */; };
 		2E4989532753E699009C5C8C /* ResultsForStationTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2E4989512753E699009C5C8C /* ResultsForStationTableViewCell.xib */; };
 		2E4989572753EA7A009C5C8C /* StationData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E4989562753EA7A009C5C8C /* StationData.swift */; };
-		2E49895B2753ED12009C5C8C /* ResultsForStationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E49895A2753ED12009C5C8C /* ResultsForStationViewController.swift */; };
-		2E49895D2753EDE3009C5C8C /* ResultsForStationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E49895C2753EDE3009C5C8C /* ResultsForStationViewModel.swift */; };
 		2E49895F2753F170009C5C8C /* UIViewControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E49895E2753F170009C5C8C /* UIViewControllerExtension.swift */; };
 		B2183AC724AE195C00E0197F /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2183AC624AE195C00E0197F /* NetworkManager.swift */; };
 		B2183AD524AE2CD400E0197F /* SearchableOptionsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B2183AD324AE2CD400E0197F /* SearchableOptionsViewController.xib */; };
@@ -22,7 +20,6 @@
 		B2183AE524B0BC7600E0197F /* ResultsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2183AE424B0BC7600E0197F /* ResultsViewController.swift */; };
 		B2183AEE24B0FC4A00E0197F /* ResultsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2183AED24B0FC4A00E0197F /* ResultsViewModel.swift */; };
 		B2183AF024B1C01B00E0197F /* Train.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2183AEF24B1C01B00E0197F /* Train.swift */; };
-		B2183AF324B1C6AE00E0197F /* UITextFieldExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2183AF224B1C6AE00E0197F /* UITextFieldExtension.swift */; };
 		B2183AF724B1D78600E0197F /* ResultsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2183AF524B1D78600E0197F /* ResultsTableViewCell.swift */; };
 		B2183AF824B1D78600E0197F /* ResultsTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B2183AF624B1D78600E0197F /* ResultsTableViewCell.xib */; };
 		B2183AFA24B2F06F00E0197F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B2183AF924B2F06F00E0197F /* Main.storyboard */; };
@@ -39,8 +36,6 @@
 		2E4989502753E699009C5C8C /* ResultsForStationTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultsForStationTableViewCell.swift; sourceTree = "<group>"; };
 		2E4989512753E699009C5C8C /* ResultsForStationTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ResultsForStationTableViewCell.xib; sourceTree = "<group>"; };
 		2E4989562753EA7A009C5C8C /* StationData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StationData.swift; sourceTree = "<group>"; };
-		2E49895A2753ED12009C5C8C /* ResultsForStationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultsForStationViewController.swift; sourceTree = "<group>"; };
-		2E49895C2753EDE3009C5C8C /* ResultsForStationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultsForStationViewModel.swift; sourceTree = "<group>"; };
 		2E49895E2753F170009C5C8C /* UIViewControllerExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewControllerExtension.swift; sourceTree = "<group>"; };
 		8652C3C85A37AE0F30045818 /* Pods-TrainStationApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TrainStationApp.release.xcconfig"; path = "Target Support Files/Pods-TrainStationApp/Pods-TrainStationApp.release.xcconfig"; sourceTree = "<group>"; };
 		B2183AC624AE195C00E0197F /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
@@ -51,7 +46,6 @@
 		B2183AE424B0BC7600E0197F /* ResultsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultsViewController.swift; sourceTree = "<group>"; };
 		B2183AED24B0FC4A00E0197F /* ResultsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultsViewModel.swift; sourceTree = "<group>"; };
 		B2183AEF24B1C01B00E0197F /* Train.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Train.swift; sourceTree = "<group>"; };
-		B2183AF224B1C6AE00E0197F /* UITextFieldExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITextFieldExtension.swift; sourceTree = "<group>"; };
 		B2183AF524B1D78600E0197F /* ResultsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultsTableViewCell.swift; sourceTree = "<group>"; };
 		B2183AF624B1D78600E0197F /* ResultsTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ResultsTableViewCell.xib; sourceTree = "<group>"; };
 		B2183AF924B2F06F00E0197F /* Main.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
@@ -85,16 +79,6 @@
 				8652C3C85A37AE0F30045818 /* Pods-TrainStationApp.release.xcconfig */,
 			);
 			path = Pods;
-			sourceTree = "<group>";
-		};
-		2E49894A2753E63F009C5C8C /* ResultsForStationModule */ = {
-			isa = PBXGroup;
-			children = (
-				2E49894B2753E657009C5C8C /* ResultsForStationTableViewCell */,
-				2E49895A2753ED12009C5C8C /* ResultsForStationViewController.swift */,
-				2E49895C2753EDE3009C5C8C /* ResultsForStationViewModel.swift */,
-			);
-			path = ResultsForStationModule;
 			sourceTree = "<group>";
 		};
 		2E49894B2753E657009C5C8C /* ResultsForStationTableViewCell */ = {
@@ -160,6 +144,7 @@
 		B2183AE324B0BC4C00E0197F /* ResultsModule */ = {
 			isa = PBXGroup;
 			children = (
+				2E49894B2753E657009C5C8C /* ResultsForStationTableViewCell */,
 				B2183AF424B1D76800E0197F /* ResultsTableViewCell */,
 				B2183AE424B0BC7600E0197F /* ResultsViewController.swift */,
 				B2183AED24B0FC4A00E0197F /* ResultsViewModel.swift */,
@@ -170,7 +155,6 @@
 		B2183AF124B1C69D00E0197F /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
-				B2183AF224B1C6AE00E0197F /* UITextFieldExtension.swift */,
 				2E49895E2753F170009C5C8C /* UIViewControllerExtension.swift */,
 			);
 			path = Extensions;
@@ -233,7 +217,6 @@
 		B2965C8324AE125300785B47 /* TrainStationUI */ = {
 			isa = PBXGroup;
 			children = (
-				2E49894A2753E63F009C5C8C /* ResultsForStationModule */,
 				B2183AE324B0BC4C00E0197F /* ResultsModule */,
 				B2183AE024AF4FEE00E0197F /* TrainStationFirstSceneModule */,
 				B2183AD224AE2CD400E0197F /* SearchableOptionsModule */,
@@ -369,9 +352,6 @@
 				B2183AF024B1C01B00E0197F /* Train.swift in Sources */,
 				B2965C6124ACCEC000785B47 /* SceneDelegate.swift in Sources */,
 				B2183AE224AF503E00E0197F /* SearchableOptionsViewModel.swift in Sources */,
-				B2183AF324B1C6AE00E0197F /* UITextFieldExtension.swift in Sources */,
-				2E49895B2753ED12009C5C8C /* ResultsForStationViewController.swift in Sources */,
-				2E49895D2753EDE3009C5C8C /* ResultsForStationViewModel.swift in Sources */,
 				B2965C7324ACCF7100785B47 /* TrainStationPreviewViewController.swift in Sources */,
 				B2965C7D24ACE09100785B47 /* Station.swift in Sources */,
 				B2183AEE24B0FC4A00E0197F /* ResultsViewModel.swift in Sources */,

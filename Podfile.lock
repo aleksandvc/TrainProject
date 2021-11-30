@@ -1,16 +1,20 @@
 PODS:
+  - Alamofire (5.4.4)
   - Bondage (1.0.1)
 
 DEPENDENCIES:
+  - Alamofire (~> 5.4)
   - Bondage
 
 SPEC REPOS:
   trunk:
+    - Alamofire
     - Bondage
 
 SPEC CHECKSUMS:
+  Alamofire: f3b09a368f1582ab751b3fff5460276e0d2cf5c9
   Bondage: 2e0bfd07265075668e95b792d22c1adf6d6c2f72
 
-PODFILE CHECKSUM: 9bb2b0a9f98ade7ad48e88a54789587dbec1d58a
+PODFILE CHECKSUM: d4d7804b906ab024c9507f1cb6fc83daebfddf4b
 
-COCOAPODS: 1.9.1
+COCOAPODS: 1.9.3

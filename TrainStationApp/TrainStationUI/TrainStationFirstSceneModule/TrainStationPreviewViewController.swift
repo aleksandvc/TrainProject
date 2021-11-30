@@ -22,12 +22,12 @@ class TrainStationPreviewViewController: UIViewController {
     
     var firstSelectedStation: Station?
     var secondselectedStation: Station?
-    
     var moreInfoSelectedStation: Station?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         getInfoButton.layer.cornerRadius = 5
+        showTrainsButton.layer.cornerRadius = 5
     }
     //MARK: Private functions
     private func toggleMainButton() {
@@ -52,30 +52,21 @@ class TrainStationPreviewViewController: UIViewController {
         }
     }
     
-    private func presentResultsVC() {
+    private func presentResultsVC(isStationDataNeeded: Bool) {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         guard let resultsVC = storyboard.instantiateViewController(withIdentifier: "ResultsViewController") as? ResultsViewController else { return }
-        resultsVC.viewModel = ResultsViewModel()
-        DispatchQueue.main.async {
-            self.present(resultsVC, animated: true, completion: nil)
-        }
-    }
-    
-    private func presentResultsForStationVC() {
-        let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        guard let resultsVC = storyboard.instantiateViewController(withIdentifier: "ResultsForStationViewController") as? ResultsForStationViewController else { return }
-        resultsVC.viewModel = ResultsForStationViewModel(selectedStation: moreInfoSelectedStation!)
+        resultsVC.viewModel = ResultsViewModel(selectedStation: moreInfoSelectedStation, isStationDataNeeded: isStationDataNeeded)
         DispatchQueue.main.async {
             self.present(resultsVC, animated: true, completion: nil)
         }
     }
     
     @IBAction func didTapGetInfoButton(_ sender: Any) {
-        presentResultsVC()
+        presentResultsVC(isStationDataNeeded: false)
     }
     
     @IBAction func didTapShowTrainsButton(_ sender: Any) {
-        presentResultsForStationVC()
+        presentResultsVC(isStationDataNeeded: true)
     }
 }
 

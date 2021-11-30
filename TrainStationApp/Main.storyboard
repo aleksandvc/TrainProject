@@ -253,6 +253,7 @@
                     </view>
                     <connections>
                         <outlet property="anotherRouteButton" destination="ATK-lV-o5k" id="WP1-mh-PXi"/>
+                        <outlet property="noAvailableLabel" destination="Pz0-F4-yGD" id="uAq-tR-bWK"/>
                         <outlet property="noAvailableTrainsView" destination="Iyc-qU-p6E" id="ZaF-bB-a9p"/>
                         <outlet property="resultsTableView" destination="lzn-D0-OcG" id="bi3-UT-fMQ"/>
                     </connections>
